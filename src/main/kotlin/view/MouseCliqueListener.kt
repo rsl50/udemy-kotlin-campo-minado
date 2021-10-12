@@ -13,7 +13,7 @@ class MouseCliqueListener (
     override fun mousePressed(e: MouseEvent?) {
         when(e?.button) {
             MouseEvent.BUTTON1 -> onBotaoEsquerdo(campo)
-            MouseEvent.BUTTON2 -> onBotaoDireito(campo) // or BUTTON3
+            MouseEvent.BUTTON3 -> onBotaoDireito(campo) // or BUTTON2
         }
     }
 
