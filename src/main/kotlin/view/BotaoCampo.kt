@@ -6,6 +6,7 @@ import java.awt.Color
 import java.awt.Font
 import javax.swing.BorderFactory
 import javax.swing.JButton
+import javax.swing.SwingUtilities
 
 private val COR_BG_NORMAL = Color(184, 184, 184)
 private val COR_BG_MARCACAO = Color(8, 179, 247)
@@ -30,6 +31,11 @@ class BotaoCampo (private val campo: Campo) : JButton() {
             CampoEvento.ABERTURA -> aplicarEstiloAberto()
             CampoEvento.MARCACAO -> aplicarEstiloMarcado()
             else -> aplicarEstiloPadrao()
+        }
+
+        SwingUtilities.invokeLater {
+            repaint()
+            validate()
         }
     }
 
@@ -57,6 +63,7 @@ class BotaoCampo (private val campo: Campo) : JButton() {
     private fun aplicarEstiloMarcado() {
         background = COR_BG_MARCACAO
         foreground = Color.BLACK
+        text = "M"
     }
 
     private fun aplicarEstiloPadrao() {
